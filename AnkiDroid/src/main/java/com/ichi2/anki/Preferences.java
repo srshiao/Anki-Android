@@ -940,6 +940,7 @@ public class Preferences extends AnkiActivity {
                 if (mBackgroundImage.isChecked()) {
                     try {
                         Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        //TODO (SRS): convert this
                         startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
                         mBackgroundImage.setChecked(true);
                     } catch (Exception ex) {

@@ -813,6 +813,7 @@ public class CardTemplateEditor extends AnkiActivity implements DeckSelectionDia
             return false;
         }
 
+        //TODO (SRS): convert this
         ActivityResultLauncher<Intent> mOnCardBrowserAppearanceActivityResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() != RESULT_OK) {
                 return;
@@ -820,6 +821,7 @@ public class CardTemplateEditor extends AnkiActivity implements DeckSelectionDia
             onCardBrowserAppearanceResult(result.getData());
         });
 
+        //TODO (SRS): convert this
         ActivityResultLauncher<Intent> mOnRequestPreviewResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result ->  {
                 if (result.getResultCode() != RESULT_OK) {
                     return;

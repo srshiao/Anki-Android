@@ -446,6 +446,7 @@ public class StudyOptionsFragment extends Fragment implements Toolbar.OnMenuItem
         }
     }
 
+    //TODO (SRS): convert this
     ActivityResultLauncher<Intent> mOnRequestReviewActivityResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         Timber.i("StudyOptionsFragment::mOnRequestReviewActivityResult");
         if (mToolbar != null) {
@@ -466,6 +467,7 @@ public class StudyOptionsFragment extends Fragment implements Toolbar.OnMenuItem
         }
     });
 
+    //TODO (SRS): convert this
     ActivityResultLauncher<Intent> mOnDeckOptionsActivityResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         Timber.i("StudyOptionsFragment::mOnDeckOptionsActivityResult");
         configureToolbar();
