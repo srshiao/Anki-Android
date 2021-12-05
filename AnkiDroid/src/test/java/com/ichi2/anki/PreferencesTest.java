@@ -62,6 +62,14 @@ public class PreferencesTest extends RobolectricTest {
         assertThat("rollover config should be set to new value", getCol().get_config("rollover", 4), is(2));
     }
 
+    /**
+     * This test will initialize a subscreen with a new AppearanceSettingsFragment. When the fragment is created,
+     * the subscreen will be initialized and then we can test that both preferences and asf have been initialized 
+     * correctly to not null.
+     * @throws ConfirmModSchemaException
+     * @Author sshiao2
+     */
+    //CS427 Issue link: https://github.com/ankidroid/Anki-Android/issues/8602
     @Test
     public void initSubscreenTest() throws ConfirmModSchemaException {
         getCol().changeSchedulerVer(2);

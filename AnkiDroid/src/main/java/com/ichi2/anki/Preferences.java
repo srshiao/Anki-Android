@@ -933,6 +933,12 @@ public class Preferences extends AnkiActivity {
         }
 
 
+        /**
+         * This method has been modified to use the new Androidx method of passing activity results, rather than
+         * the old way of using startActivityFromResult().
+         * 
+         * @Author sshiao2
+         */
         @Override
         protected void initSubscreen() {
             addPreferencesFromResource(R.xml.preferences_appearance);
@@ -941,8 +947,8 @@ public class Preferences extends AnkiActivity {
                 if (mBackgroundImage.isChecked()) {
                     try {
                         Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        //CS427 Issue link: https://github.com/ankidroid/Anki-Android/issues/8602
                         resultImageResult.launch(galleryIntent);
-                        //TODO: SRS
                         mBackgroundImage.setChecked(true);
                     } catch (Exception ex) {
                         Timber.e("%s", ex.getLocalizedMessage());
@@ -966,6 +972,7 @@ public class Preferences extends AnkiActivity {
             initializeCustomFontsDialog();
         }
 
+        //CS427 Issue link: https://github.com/ankidroid/Anki-Android/issues/8602
         ActivityResultLauncher<Intent> resultImageResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() != RESULT_LOAD_IMG){
                 return;
