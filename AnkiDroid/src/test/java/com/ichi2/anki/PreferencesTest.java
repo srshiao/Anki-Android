@@ -62,6 +62,18 @@ public class PreferencesTest extends RobolectricTest {
         assertThat("rollover config should be set to new value", getCol().get_config("rollover", 4), is(2));
     }
 
+    @Test
+    public void initSubscreenTest() throws ConfirmModSchemaException {
+        getCol().changeSchedulerVer(2);
+        Preferences preferences = getInstance();
+        
+        Preferences.AppearanceSettingsFragment asf = new Preferences.AppearanceSettingsFragment();
+
+        assertNotNull(preferences);
+        assertNotNull(asf);
+
+    }
+
     @NonNull
     protected Preferences getInstance() {
         Preferences preferences = new Preferences();
